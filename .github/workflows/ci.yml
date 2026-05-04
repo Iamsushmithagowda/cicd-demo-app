@@ -54,21 +54,4 @@ jobs:
               ]
             }
       
-      - name: Slack notification (failure)
-        if: failure()
-        uses: slackapi/slack-github-action@v1
-        with:
-          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          payload: |
-            {
-              "text": "❌ CI Pipeline Failed",
-              "blocks": [
-                {
-                  "type": "section",
-                  "text": {
-                    "type": "mrkdwn",
-                    "text": "*CI Pipeline Status: ❌ FAILED*\n*Branch:* ${{ github.ref_name }}\n*Commit:* `${{ github.sha }}`\n*Author:* ${{ github.actor }}"
-                  }
-                }
-              ]
-            }
+      - name: 
